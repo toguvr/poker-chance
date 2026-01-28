@@ -15,6 +15,8 @@ function App() {
   const calcTimer = useRef<number | null>(null)
 
   const selected = useMemo(() => new Set([...hero, ...board]), [hero, board])
+  const heroSet = useMemo(() => new Set(hero), [hero])
+  const boardSet = useMemo(() => new Set(board), [board])
 
   const handleCardClick = (code: string) => {
     if (selected.has(code)) {
@@ -182,6 +184,8 @@ function App() {
                 key={code}
                 className={`deck-card suit-${code[1].toLowerCase()} ${
                   selected.has(code) ? 'selected' : ''
+                } ${heroSet.has(code) ? 'selected-hero' : ''} ${
+                  boardSet.has(code) ? 'selected-board' : ''
                 }`}
                 onClick={() => handleCardClick(code)}
                 disabled={
