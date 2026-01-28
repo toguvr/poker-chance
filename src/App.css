@@ -1,0 +1,337 @@
+.app {
+  color: var(--text);
+  min-height: 100vh;
+  padding: 3.5rem clamp(1.5rem, 4vw, 4rem) 4rem;
+}
+
+.hero {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  align-items: center;
+  margin-bottom: 2.5rem;
+}
+
+.eyebrow {
+  font-family: var(--display);
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-size: 0.75rem;
+  color: var(--accent);
+  margin: 0 0 0.5rem;
+}
+
+.hero h1 {
+  font-family: var(--display);
+  font-size: clamp(2.4rem, 3.2vw, 3.4rem);
+  margin: 0 0 0.8rem;
+}
+
+.subtitle {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.05rem;
+  max-width: 38rem;
+}
+
+.scorecard {
+  background: linear-gradient(140deg, rgba(17, 19, 33, 0.9), rgba(20, 46, 46, 0.95));
+  border-radius: 24px;
+  padding: 1.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 24px 40px rgba(0, 0, 0, 0.35);
+  display: grid;
+  gap: 1rem;
+}
+
+.score {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+  color: var(--muted);
+}
+
+.score strong {
+  font-family: var(--display);
+  font-size: 1.8rem;
+  color: var(--text);
+}
+
+.status {
+  margin-top: 0.6rem;
+  font-size: 0.95rem;
+  color: var(--accent-soft);
+}
+
+.arena {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 2.5rem;
+}
+
+.panel,
+.deck {
+  background: rgba(18, 23, 38, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  padding: 1.8rem;
+  box-shadow: 0 24px 40px rgba(0, 0, 0, 0.3);
+}
+
+.panel h2,
+.deck h2 {
+  font-family: var(--display);
+  margin: 0 0 1rem;
+}
+
+.deck p {
+  margin: 0 0 1.5rem;
+  color: var(--muted);
+}
+
+.slots {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(88px, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 1.6rem;
+}
+
+.slot {
+  border: 2px dashed rgba(255, 255, 255, 0.15);
+  background: rgba(12, 16, 28, 0.7);
+  border-radius: 16px;
+  padding: 0.85rem;
+  min-height: 88px;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: 0.2s ease;
+}
+
+.slot.filled {
+  border-style: solid;
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(20, 26, 41, 0.85);
+}
+
+.slot:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.slot-empty {
+  font-size: 2rem;
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.card-badge {
+  width: 56px;
+  height: 72px;
+  border-radius: 12px;
+  background: rgba(249, 250, 255, 0.95);
+  color: #0c0f1a;
+  font-weight: 700;
+  display: grid;
+  place-items: center;
+  position: relative;
+  font-size: 1.2rem;
+}
+
+.card-badge .suit {
+  position: absolute;
+  bottom: 6px;
+  right: 8px;
+  font-size: 1rem;
+}
+
+.toggle {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.8rem;
+  margin-bottom: 1.6rem;
+}
+
+.toggle button {
+  padding: 0.75rem 1rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  background: rgba(18, 23, 38, 0.8);
+  color: var(--muted);
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.toggle button.active {
+  background: rgba(22, 97, 78, 0.35);
+  color: var(--text);
+  border-color: rgba(66, 244, 182, 0.4);
+  box-shadow: inset 0 0 0 1px rgba(66, 244, 182, 0.3);
+}
+
+.controls {
+  display: grid;
+  gap: 1.2rem;
+  margin-bottom: 1.6rem;
+}
+
+.controls label {
+  display: grid;
+  gap: 0.6rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.controls input[type='range'] {
+  width: 100%;
+  accent-color: var(--accent);
+}
+
+.auto-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(10, 14, 24, 0.6);
+  border-radius: 14px;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.auto-toggle input {
+  width: 46px;
+  height: 24px;
+}
+
+.actions {
+  display: flex;
+  gap: 0.9rem;
+  flex-wrap: wrap;
+}
+
+.actions button {
+  border-radius: 16px;
+  border: none;
+  padding: 0.85rem 1.4rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.actions button:hover {
+  transform: translateY(-2px);
+}
+
+.actions .primary {
+  background: linear-gradient(120deg, #30d59b, #1a9da4);
+  color: #071218;
+  box-shadow: 0 12px 24px rgba(48, 213, 155, 0.35);
+}
+
+.actions .ghost {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text);
+}
+
+.actions button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.deck-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+  gap: 0.7rem;
+}
+
+.deck-card {
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(248, 250, 255, 0.95);
+  color: #0a1118;
+  min-height: 72px;
+  padding: 0.4rem;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  position: relative;
+  transition: 0.15s ease;
+  font-weight: 700;
+}
+
+.deck-card .rank {
+  font-size: 1.1rem;
+}
+
+.deck-card .suit {
+  position: absolute;
+  bottom: 6px;
+  right: 8px;
+  font-size: 0.9rem;
+}
+
+.deck-card:hover:not(.selected) {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+}
+
+.deck-card.selected {
+  border-color: rgba(66, 244, 182, 0.7);
+  box-shadow: 0 0 0 2px rgba(66, 244, 182, 0.4);
+  transform: translateY(-2px) scale(1.03);
+}
+
+.deck-card:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.mobile-scorecard {
+  display: none;
+}
+
+.suit-h,
+.suit-d {
+  color: #cc2f41;
+}
+
+.suit-s,
+.suit-c {
+  color: #0b1a2b;
+}
+
+@media (max-width: 960px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .arena {
+    grid-template-columns: 1fr;
+  }
+
+  .scorecard {
+    display: none;
+  }
+
+  .mobile-scorecard {
+    position: sticky;
+    bottom: 1rem;
+    margin-top: 2rem;
+    display: grid;
+    gap: 0.8rem;
+    background: rgba(12, 16, 28, 0.95);
+    border-radius: 20px;
+    padding: 1rem 1.2rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 16px 30px rgba(0, 0, 0, 0.35);
+  }
+
+  .mobile-scorecard .score {
+    font-size: 0.95rem;
+  }
+
+  .mobile-scorecard strong {
+    font-size: 1.5rem;
+  }
+}
